@@ -17,8 +17,9 @@ def getYelpInfo(yelp_bus_id):
 	resp = requests.get(url, headers=headers)
 	data = json.loads(resp.text)
 	if data and 'error' not in data:
-		return [data['location']['zip_code'], data['location']['state']]
+		return data['location']['zip_code'] + '___' + data['location']['state']
 
 	return None
 
-print(getYelpInfo('nJKRtXiIYpKIrIb7NfKwaw'))
+print(getYelpInfo('ZyfOt84HvbX4FsqGLOZqCw'))
+print(getYelpInfo('ZyfOt84HvbX4FsqGLOZqCd'))
